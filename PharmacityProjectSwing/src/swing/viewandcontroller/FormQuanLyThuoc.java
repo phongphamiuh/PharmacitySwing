@@ -1,4 +1,4 @@
-package java.swing.viewandcontroller;
+package swing.viewandcontroller;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

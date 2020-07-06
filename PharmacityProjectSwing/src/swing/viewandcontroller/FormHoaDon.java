@@ -1,4 +1,4 @@
-package java.swing.viewandcontroller;
+package swing.viewandcontroller;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class TrangChu extends JFrame {
+public class FormHoaDon extends JFrame {
 
 	private JPanel contentPane;
 
@@ -18,7 +18,7 @@ public class TrangChu extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TrangChu frame = new TrangChu();
+					FormHoaDon frame = new FormHoaDon();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +30,7 @@ public class TrangChu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TrangChu() {
+	public FormHoaDon() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
