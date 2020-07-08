@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+encoding//src/main/java/swing/project/dao/impl/DuocPhamDAOImpl.java=UTF-8
+encoding//src/main/java/swing/project/dao/impl/HoaDonDAOImpl.java=UTF-8
+encoding//src/test/java/swing/project/duocpham/test/DuocPhamTest.java=UTF-8
+encoding//src/test/java/swing/project/duocpham/test/OneToManyDuocPham.java=UTF-8
+encoding//src/test/java/swing/project/hoadon/test/HoaDonTest.java=UTF-8
