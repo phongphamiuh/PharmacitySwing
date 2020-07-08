@@ -1,5 +1,6 @@
 package swing.project.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -24,9 +25,8 @@ public class HoaDon {
 	@Column
 	private Long maHoaDon;
 	
-	@Column
-	@Temporal(TemporalType.DATE)
-	private Date ngayLapHoaDon;
+	@Column	
+	private LocalDate ngayLapHoaDon;
 	
 	@Column
 	private int soLuongDuocPham;
@@ -61,11 +61,11 @@ public class HoaDon {
 		this.maHoaDon = maHoaDon;
 	}
 
-	public Date getNgayLapHoaDon() {
+	public LocalDate getNgayLapHoaDon() {
 		return ngayLapHoaDon;
 	}
 
-	public void setNgayLapHoaDon(Date ngayLapHoaDon) {
+	public void setNgayLapHoaDon(LocalDate ngayLapHoaDon) {
 		this.ngayLapHoaDon = ngayLapHoaDon;
 	}
 
@@ -127,7 +127,7 @@ public class HoaDon {
 		this.chiTietHoaDon = chiTietHoaDon;
 	}
 
-	public HoaDon(Long maHoaDon, Date ngayLapHoaDon, int soLuongDuocPham, Long tongTien, String ghiChu,
+	public HoaDon(Long maHoaDon, LocalDate ngayLapHoaDon, int soLuongDuocPham, Long tongTien, String ghiChu,
 		 KhachHang khachHang, NhanVien nhanVien) {
 		super();
 		this.maHoaDon = maHoaDon;

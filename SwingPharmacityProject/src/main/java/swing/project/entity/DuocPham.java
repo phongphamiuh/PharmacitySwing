@@ -48,16 +48,15 @@ public class DuocPham {
 	private String donViTinh;
 	
 	@Column
-	@Temporal(TemporalType.DATE)
-	private Date ngayNhap;
+	private LocalDate ngayNhap;
 	
 	@Column
-	@Temporal(TemporalType.DATE)
-	private Date ngaySanXuat;
+	
+	private LocalDate ngaySanXuat;
 	
 	@Column
-	@Temporal(TemporalType.DATE)
-	private Date ngayHetHan;
+	
+	private LocalDate ngayHetHan;
 	
 	@Column
 	private String moTa;
@@ -87,7 +86,7 @@ public class DuocPham {
 	}
 
 	public DuocPham(Long maDuocPham, String tenDuocPham, int soLuong, double giaNhap, double giaBan, String donViTinh,
-			Date ngayNhap, Date ngaySanXuat, Date ngayHetHan, String moTa, LoaiDuocPham loaiDuocPham,
+			LocalDate ngayNhap, LocalDate ngaySanXuat, LocalDate ngayHetHan, String moTa, LoaiDuocPham loaiDuocPham,
 			NhaCungCap nhaCungCap) {
 		super();
 		this.maDuocPham = maDuocPham;
@@ -152,27 +151,27 @@ public class DuocPham {
 		this.donViTinh = donViTinh;
 	}
 
-	public Date getNgayNhap() {
+	public LocalDate getNgayNhap() {
 		return ngayNhap;
 	}
 
-	public void setNgayNhap(Date ngayNhap) {
+	public void setNgayNhap(LocalDate ngayNhap) {
 		this.ngayNhap = ngayNhap;
 	}
 
-	public Date getNgaySanXuat() {
+	public LocalDate getNgaySanXuat() {
 		return ngaySanXuat;
 	}
 
-	public void setNgaySanXuat(Date ngaySanXuat) {
+	public void setNgaySanXuat(LocalDate ngaySanXuat) {
 		this.ngaySanXuat = ngaySanXuat;
 	}
 
-	public Date getNgayHetHan() {
+	public LocalDate getNgayHetHan() {
 		return ngayHetHan;
 	}
 
-	public void setNgayHetHan(Date ngayHetHan) {
+	public void setNgayHetHan(LocalDate ngayHetHan) {
 		this.ngayHetHan = ngayHetHan;
 	}
 

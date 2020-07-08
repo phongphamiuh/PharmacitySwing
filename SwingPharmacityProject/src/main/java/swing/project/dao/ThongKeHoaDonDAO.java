@@ -1,5 +1,7 @@
 package swing.project.dao;
 
-public class ThongKeHoaDonDAO {
-
+public interface ThongKeHoaDonDAO {
+	
+	public double tinhThanhTienTheoNgay();
+	
 }

@@ -1,6 +1,8 @@
 package swing.project.hoadon.test;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 
@@ -31,11 +33,11 @@ public class HoaDonTest {
 
 	@Test
 	public void hoaDonTest() {		
-		Date date1=new Date("2/2/2020");
-		Date date2=new Date("5/5/2020");
-		SimpleDateFormat simpleDate=new SimpleDateFormat("dd/MM/yyyy");
-		String date1Format=simpleDate.format(date1);
-		String date2Format=simpleDate.format(date2);
+		LocalDate date = LocalDate.of(2000,4, 19);
+	    DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/yyy");
+	    String text = date.format(formatters);
+	    LocalDate parsedDate = LocalDate.parse(text, formatters);
+	    
 		LoaiDuocPham loaiDuocPham=new LoaiDuocPham("Đau đầu");
 		
 		NhaCungCap nhaCungCap=new NhaCungCap();
@@ -44,9 +46,9 @@ public class HoaDonTest {
 		nhaCungCap.setXuatXu(new XuatXu("My"));	
 		
 		
-		DuocPham dp1=new DuocPham(35l, "pharmtis", 5, 10000, 12000,"Hop", new Date(date1Format),new Date(date1Format), new Date(date2Format), "Thuoc khang sinh",loaiDuocPham,nhaCungCap);
-		DuocPham dp2=new DuocPham(12l, "Uestasa", 5, 10000, 13000,"Hop", new Date(date1Format),new Date(date1Format), new Date(date2Format), "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
-		DuocPham dp3=new DuocPham(15l, "Najyraky", 7, 10000, 15000,"Hop", new Date(date1Format),new Date(date1Format), new Date(date2Format), "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
+		DuocPham dp1=new DuocPham(35l, "pharmtis", 5, 10000, 12000,"Hop", parsedDate,parsedDate, parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);
+		DuocPham dp2=new DuocPham(12l, "Uestasa", 5, 10000, 13000,"Hop", parsedDate,parsedDate, parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
+		DuocPham dp3=new DuocPham(15l, "Najyraky", 7, 10000, 15000,"Hop",parsedDate,parsedDate,parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		
 		KhachHang khachHang=new KhachHang(123l, "Phong", 1);
 		NhanVien nhanVien=new NhanVien(18042041l, "Phong", "0358984752", "BRVT");
@@ -56,7 +58,7 @@ public class HoaDonTest {
 		
 		HoaDon hoaDon=new HoaDon();
 		hoaDon.setMaHoaDon(126l);
-		hoaDon.setNgayLapHoaDon(new Date(date1Format));
+		hoaDon.setNgayLapHoaDon(parsedDate);
 		hoaDon.setGhiChu("Đọc kỹ hướng dẫn trước khi sử dụng");
 		hoaDon.setSoLuongDuocPham(2);
 		hoaDon.setTongTien(5000l);
@@ -66,7 +68,7 @@ public class HoaDonTest {
 		
 		HoaDon hoaDon1=new HoaDon();
 		hoaDon1.setMaHoaDon(467l);
-		hoaDon1.setNgayLapHoaDon(new Date(date1Format));
+		hoaDon1.setNgayLapHoaDon(parsedDate);
 		hoaDon1.setGhiChu("Đọc kỹ hướng dẫn trước khi sử dụng");
 		hoaDon1.setSoLuongDuocPham(3);
 		hoaDon1.setTongTien(5000l);
