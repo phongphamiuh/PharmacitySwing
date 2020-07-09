@@ -12,9 +12,11 @@ public interface HoaDonDAO {
 		
 	public HoaDon timHoaDonTheoMa(Long maHoaDon);
 	
+	public boolean suaHoaDon(HoaDon hoaDon);
+	
 	public List<HoaDon> getDanhSachHoaDon();
 	
 	public List<HoaDon> getDanhSachHoaDonTheoTenKhachHang(String tenKhachHang);
 	
-
+	
 }

@@ -80,7 +80,9 @@ public class DuocPham {
 	@OneToMany(mappedBy="duocPham")
 	private Set<ChiTietHoaDon> chiTietHoaDon=new HashSet<ChiTietHoaDon>();
 
-	
+	public Long tongTienDuocPham() {
+		return (long) (this.soLuong*this.giaBan);
+	}
 	public DuocPham() {
 		// TODO Auto-generated constructor stub
 	}

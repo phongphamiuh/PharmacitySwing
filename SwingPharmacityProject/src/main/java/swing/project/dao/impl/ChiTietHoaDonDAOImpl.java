@@ -8,12 +8,15 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import swing.project.dao.ChiTietHoaDonDAO;
+import swing.project.dao.DuocPhamDAO;
 import swing.project.entity.ChiTietHoaDon;
 import swing.project.entity.DuocPham;
 import swing.project.entity.HoaDon;
 import swing.project.hibernate.HibernateUtil;
 
 public class ChiTietHoaDonDAOImpl implements ChiTietHoaDonDAO{
+	
+	DuocPhamDAO duocPhamDAO=new DuocPhamDAOImpl();
 	
 	public ChiTietHoaDonDAOImpl() {
 		// TODO Auto-generated constructor stub
@@ -59,6 +62,30 @@ public class ChiTietHoaDonDAOImpl implements ChiTietHoaDonDAO{
         	session.close();
         }	
 		return null;
+	}
+
+	@Override
+	public boolean capNhapSoLuongTrongKho(long maDuocPham, int soLuong) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();         
+            
+            DuocPham duocPham=duocPhamDAO.timDuocPhamTheoMa(maDuocPham);
+            System.out.println("-----------------------------------------------------------------"+duocPham.toString());
+            duocPham.setSoLuong(soLuong);
+            session.saveOrUpdate(duocPham);
+            transaction.commit();   
+            return true;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }	
+		return false;
 	}
 
 	

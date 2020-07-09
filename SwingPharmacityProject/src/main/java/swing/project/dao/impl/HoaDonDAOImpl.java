@@ -94,7 +94,7 @@ public class HoaDonDAOImpl implements HoaDonDAO{
             // bắt đầu một transaction
 			session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();         
-            Query query=session.createQuery("FROM DuocPham");
+            Query query=session.createQuery("FROM HoaDon");
             List<HoaDon> result=query.getResultList();
             transaction.commit();  
             return result;
@@ -130,4 +130,25 @@ public class HoaDonDAOImpl implements HoaDonDAO{
 		return null;	
 	}
 
+	@Override
+	public boolean suaHoaDon(HoaDon hoaDon) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();                    
+            session.saveOrUpdate(hoaDon);
+            transaction.commit();  
+            return true;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }	
+		return false;
+	}	
+	
+	
 }

@@ -555,9 +555,7 @@ public class FormQuanLyThuoc extends JFrame implements ActionListener,MouseListe
 						duocPham.setGiaBan(Double.parseDouble(txtGiaBan.getText()));
 						duocPham.setGiaNhap(Double.parseDouble(txtGiaNhap.getText()));
 						
-						duocPham.setNgaySanXuat(new Date(namSanXuat, thangSanXuat, ngaySanXuat));
-						duocPham.setNgayHetHan(new Date(namHetHan, thangHetHan, ngayHetHan));
-						duocPham.setNgayNhap(new Date(namNhap, thangNhap, ngayNhap));
+						
 						
 						duocPham.setMoTa(txtMoTa.getText());
 						duocPham.setLoaiDuocPham(new LoaiDuocPham(cbloaiDuocPham.getSelectedItem().toString()));

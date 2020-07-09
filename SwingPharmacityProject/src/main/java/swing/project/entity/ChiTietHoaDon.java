@@ -1,6 +1,8 @@
 package swing.project.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -23,6 +25,8 @@ public class ChiTietHoaDon {
 
 		@Column(name = "maDuocPham")
 		protected Long maDuocPham;
+		
+		
 
 		public Id() {
 		}
@@ -50,6 +54,8 @@ public class ChiTietHoaDon {
 
 	@Column
 	private int soLuong;
+	
+	
 	
 	@ManyToOne
 	@JoinColumns({ @JoinColumn(name = "maDuocPham", insertable = false, updatable = false),
@@ -80,6 +86,14 @@ public class ChiTietHoaDon {
 		hoaDon.getChiTietHoaDon().add(this);
 		duocPham.getChiTietHoaDon().add(this);
 	}
+	
+	public int capNhatSoLuongTrongKho() {
+		int soLuongTrongKhoConLai=this.duocPham.getSoLuong()-this.soLuong;
+		return soLuongTrongKhoConLai;
+	}
+	
+	
+	
 
 	public Id getId() {
 		return id;

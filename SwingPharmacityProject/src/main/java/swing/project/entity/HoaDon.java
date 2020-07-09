@@ -8,6 +8,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -32,7 +33,7 @@ public class HoaDon {
 	private int soLuongDuocPham;
 	
 	@Column
-	private Long tongTien;
+	private double tongTien;
 	
 	@Column
 	private String ghiChu;
@@ -77,11 +78,11 @@ public class HoaDon {
 		this.soLuongDuocPham = soLuongDuocPham;
 	}
 
-	public Long getTongTien() {
+	public double getTongTien() {
 		return tongTien;
 	}
 
-	public void setTongTien(Long tongTien) {
+	public void setTongTien(double tongTien) {
 		this.tongTien = tongTien;
 	}
 
@@ -127,7 +128,7 @@ public class HoaDon {
 		this.chiTietHoaDon = chiTietHoaDon;
 	}
 
-	public HoaDon(Long maHoaDon, LocalDate ngayLapHoaDon, int soLuongDuocPham, Long tongTien, String ghiChu,
+	public HoaDon(Long maHoaDon, LocalDate ngayLapHoaDon, int soLuongDuocPham, double tongTien, String ghiChu,
 		 KhachHang khachHang, NhanVien nhanVien) {
 		super();
 		this.maHoaDon = maHoaDon;
