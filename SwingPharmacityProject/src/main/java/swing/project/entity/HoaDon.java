@@ -147,7 +147,7 @@ public class HoaDon {
 	public String toString() {
 		return "HoaDon [maHoaDon=" + maHoaDon + ", ngayLapHoaDon=" + ngayLapHoaDon + ", soLuongDuocPham="
 				+ soLuongDuocPham + ", tongTien=" + tongTien + ", ghiChu=" + ghiChu + ", danhSachDuocPham="
-				 + ", khachHang=" + khachHang.getMaKhachHang() + ", nhanVien=" + nhanVien.getMaNhanVien() + "]";
+				  + ", nhanVien=" + nhanVien.getMaNhanVien() + "]";
 	}
 	
 	

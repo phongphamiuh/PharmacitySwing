@@ -31,6 +31,6 @@
         <mapping class="swing.project.entity.HoaDon" />
         <mapping class="swing.project.entity.KhachHang" />
         <mapping class="swing.project.entity.NhanVien" />
-        <mapping class="swing.project.entity.ChiTietHoaDon" />
+        <mapping class="swing.project.entity.ChiTietHoaDon" />           
     </session-factory>
 </hibernate-configuration>

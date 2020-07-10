@@ -9,6 +9,8 @@ public interface ChiTietHoaDonDAO {
 	
 	public List<ChiTietHoaDon> getDanhSachChiTietHoaDonTheoMaHoaDon(Long tenKhachHang);
 	
+	
+	
 	public boolean capNhapSoLuongTrongKho(long maDuocPham,int soLuong);
 	
 }

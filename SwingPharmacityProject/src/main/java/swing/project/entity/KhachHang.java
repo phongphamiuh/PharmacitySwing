@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -14,6 +16,7 @@ import javax.persistence.Table;
 public class KhachHang {
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
 	private Long maKhachHang;
 	
@@ -30,22 +33,15 @@ public class KhachHang {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KhachHang(Long maKhachHang, String tenKhachHang, int soDienThoai) {
+	public KhachHang(String tenKhachHang, int soDienThoai) {
 		super();
-		this.maKhachHang = maKhachHang;
+		
 		this.tenKhachHang = tenKhachHang;
 		
 		this.soDienThoai = soDienThoai;
 	
 	}
 
-	public Long getMaKhachHang() {
-		return maKhachHang;
-	}
-
-	public void setMaKhachHang(Long maKhachHang) {
-		this.maKhachHang = maKhachHang;
-	}
 
 	public String getTenKhachHang() {
 		return tenKhachHang;
@@ -71,6 +67,13 @@ public class KhachHang {
 	public void setDanhSachHoaDon(Set<HoaDon> danhSachHoaDon) {
 		this.danhSachHoaDon = danhSachHoaDon;
 	}
+
+	@Override
+	public String toString() {
+		return "KhachHang [maKhachHang=" + maKhachHang + ", tenKhachHang=" + tenKhachHang + ", soDienThoai="
+				+ soDienThoai + ", danhSachHoaDon=" + danhSachHoaDon + "]";
+	}
+	
 	
 	
 	
