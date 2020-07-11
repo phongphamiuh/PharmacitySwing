@@ -17,13 +17,13 @@ import javax.persistence.Table;
 public class LoaiDuocPham {
 	@Id
 	@Column
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long maLoai;
 	
 	@Column
 	private String tenLoai;
 	
-	@OneToMany(mappedBy="loaiDuocPham", orphanRemoval = true,cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="loaiDuocPham",cascade=CascadeType.ALL)
 	List<DuocPham> danhSachDuocPhamLoai=new ArrayList<DuocPham>();
 	
 	public Long getMaLoai() {

@@ -9,7 +9,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -62,12 +61,12 @@ public class DuocPham {
 	@Column
 	private String moTa;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="maLoai")
+	@ManyToOne
+	@JoinColumn(name="maLoai")
 	private LoaiDuocPham loaiDuocPham;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-//	@JoinColumn(name="maNhaCungCap")
+	@ManyToOne
+	@JoinColumn(name="maNhaCungCap")
 	private NhaCungCap nhaCungCap;
 	
 //	@ManyToMany(cascade = CascadeType.PERSIST)
@@ -89,24 +88,6 @@ public class DuocPham {
 	}
 
 	public DuocPham(Long maDuocPham, String tenDuocPham, int soLuong, double giaNhap, double giaBan, String donViTinh,
-			LocalDate ngayNhap, LocalDate ngaySanXuat, LocalDate ngayHetHan, String moTa
-			) {
-		super();
-		this.maDuocPham = maDuocPham;
-		this.tenDuocPham = tenDuocPham;
-		this.soLuong = soLuong;
-		this.giaNhap = giaNhap;
-		this.giaBan = giaBan;
-		this.donViTinh = donViTinh;
-		this.ngayNhap = ngayNhap;
-		this.ngaySanXuat = ngaySanXuat;
-		this.ngayHetHan = ngayHetHan;
-		this.moTa = moTa;
-	}
-	
-	
-
-	public DuocPham(Long maDuocPham, String tenDuocPham, int soLuong, double giaNhap, double giaBan, String donViTinh,
 			LocalDate ngayNhap, LocalDate ngaySanXuat, LocalDate ngayHetHan, String moTa, LoaiDuocPham loaiDuocPham,
 			NhaCungCap nhaCungCap) {
 		super();
@@ -122,9 +103,8 @@ public class DuocPham {
 		this.moTa = moTa;
 		this.loaiDuocPham = loaiDuocPham;
 		this.nhaCungCap = nhaCungCap;
-		
 	}
-	
+
 	public Long getMaDuocPham() {
 		return maDuocPham;
 	}

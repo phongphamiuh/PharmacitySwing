@@ -13,8 +13,10 @@ import org.hibernate.Transaction;
 import org.junit.Test;
 
 import swing.project.dao.ChiTietHoaDonDAO;
+import swing.project.dao.DuocPhamDAO;
 import swing.project.dao.HoaDonDAO;
 import swing.project.dao.impl.ChiTietHoaDonDAOImpl;
+import swing.project.dao.impl.DuocPhamDAOImpl;
 import swing.project.dao.impl.HoaDonDAOImpl;
 import swing.project.entity.ChiTietHoaDon;
 import swing.project.entity.DuocPham;
@@ -29,6 +31,7 @@ import swing.project.hibernate.HibernateUtil;
 public class HoaDonTest {
 	
 	HoaDonDAO hoaDonDAOImpl=new HoaDonDAOImpl();
+	DuocPhamDAO duocPhamDAO=new DuocPhamDAOImpl();
 	ChiTietHoaDonDAO chiTietHoaDonDaoImpl=new ChiTietHoaDonDAOImpl();
 
 	@Test
@@ -40,6 +43,8 @@ public class HoaDonTest {
 	    
 		LoaiDuocPham loaiDuocPham=new LoaiDuocPham("Đau đầu");
 		
+		
+		
 		NhaCungCap nhaCungCap=new NhaCungCap();
 		nhaCungCap.setMaNhaCungCap(123l);
 		nhaCungCap.setTenNhaCungCap("Akamaot");
@@ -49,6 +54,7 @@ public class HoaDonTest {
 		DuocPham dp1=new DuocPham(35l, "pharmtis", 5, 10000, 12000,"Hop", parsedDate,parsedDate, parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);
 		DuocPham dp2=new DuocPham(12l, "Uestasa", 5, 10000, 13000,"Hop", parsedDate,parsedDate, parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		DuocPham dp3=new DuocPham(15l, "Najyraky", 7, 10000, 15000,"Hop",parsedDate,parsedDate,parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
+		
 		
 		KhachHang khachHang=new KhachHang("Phong", "1");
 		NhanVien nhanVien=new NhanVien(18042041l, "Phong", "0358984752", "BRVT");

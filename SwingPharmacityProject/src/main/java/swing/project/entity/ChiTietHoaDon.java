@@ -93,7 +93,6 @@ public class ChiTietHoaDon {
 	}
 	
 	
-	
 
 	public Id getId() {
 		return id;

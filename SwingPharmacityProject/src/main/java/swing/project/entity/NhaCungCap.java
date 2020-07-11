@@ -1,9 +1,7 @@
 package swing.project.entity;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,8 +21,8 @@ public class NhaCungCap {
 	@Column
 	private String tenNhaCungCap;
 	
-	@OneToMany(mappedBy="nhaCungCap",orphanRemoval = true,cascade=CascadeType.ALL)
-	Set<DuocPham> danhSachDuocPham=new HashSet<DuocPham>();
+	@OneToMany(mappedBy="nhaCungCap", orphanRemoval = true)
+	List<DuocPham> danhSachDuocPham=new ArrayList<DuocPham>();
 	
 	private XuatXu xuatXu;
 	
@@ -32,21 +30,14 @@ public class NhaCungCap {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public NhaCungCap(Long maNhaCungCap, String tenNhaCungCap, Set<DuocPham> danhSachDuocPham, XuatXu xuatXu) {
-		super();
-		this.maNhaCungCap = maNhaCungCap;
-		this.tenNhaCungCap = tenNhaCungCap;
-		this.danhSachDuocPham = danhSachDuocPham;
-		this.xuatXu = xuatXu;
-	}
-	
-	public NhaCungCap(Long maNhaCungCap, String tenNhaCungCap, XuatXu xuatXu) {
+	public NhaCungCap(Long maNhaCungCap, String tenNhaCungCap ,XuatXu xuatXu) {
 		super();
 		this.maNhaCungCap = maNhaCungCap;
 		this.tenNhaCungCap = tenNhaCungCap;
 		
 		this.xuatXu = xuatXu;
 	}
+
 
 	public Long getMaNhaCungCap() {
 		return maNhaCungCap;
@@ -64,11 +55,11 @@ public class NhaCungCap {
 		this.tenNhaCungCap = tenNhaCungCap;
 	}
 
-	public Set<DuocPham> getDanhSachDuocPham() {
+	public List<DuocPham> getDanhSachDuocPham() {
 		return danhSachDuocPham;
 	}
 
-	public void setDanhSachDuocPham(Set<DuocPham> danhSachDuocPham) {
+	public void setDanhSachDuocPham(List<DuocPham> danhSachDuocPham) {
 		this.danhSachDuocPham = danhSachDuocPham;
 	}
 

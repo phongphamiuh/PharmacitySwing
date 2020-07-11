@@ -48,7 +48,7 @@ public class HoaDon {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private KhachHang khachHang;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	 @ManyToOne(fetch = FetchType.LAZY)
 	private NhanVien nhanVien;
 	
 	public HoaDon() {

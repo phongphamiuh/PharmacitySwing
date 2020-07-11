@@ -30,14 +30,10 @@ public class DuocPhamTest {
 	
 	
 	@Test
-	public void themDuocPham() {	
-		
-		
+	public void themDuocPham() {			
 		LoaiDuocPham loaiDuocPham=new LoaiDuocPham("Đau đầu");
 		LoaiDuocPham loaiDuocPham1=new LoaiDuocPham("tim");
-		
-		
-		
+			
 		duocPhamDao.themLoaiDuocPham(loaiDuocPham);
 		duocPhamDao.themLoaiDuocPham(loaiDuocPham1);
 						
