@@ -48,9 +48,9 @@ public class HoaDonTestDAO {
 		DuocPham dp3=new DuocPham(15l, "Najyraky", 7, 10000, 15000,"Hop",parsedDate,parsedDate,parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		
 		
-		KhachHang khachHang=new KhachHang("Phong", 1);
+		KhachHang khachHang=new KhachHang("Phong", "1");
 		NhanVien nhanVien=new NhanVien(18042041l, "Phong", "0358984752", "BRVT");	
-		KhachHang khachHang1=new KhachHang("Huy", 1);
+		KhachHang khachHang1=new KhachHang("Huy", "1");
 		NhanVien nhanVien1=new NhanVien(18042047l, "Hien", "0358984752", "BRVT");
 		
 		// tạo 2 nhân viên 2 khách hàng

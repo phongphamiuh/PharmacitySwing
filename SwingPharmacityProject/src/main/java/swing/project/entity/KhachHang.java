@@ -26,7 +26,7 @@ public class KhachHang {
 	private String tenKhachHang;
 	
 	@Column
-	private int soDienThoai;
+	private String soDienThoai;
 	
 	
 	@OneToMany(mappedBy="khachHang", orphanRemoval = true,cascade=CascadeType.ALL)
@@ -36,7 +36,7 @@ public class KhachHang {
 		// TODO Auto-generated constructor stub
 	}
 
-	public KhachHang(String tenKhachHang, int soDienThoai) {
+	public KhachHang(String tenKhachHang, String soDienThoai) {
 		super();
 		
 		this.tenKhachHang = tenKhachHang;
@@ -55,11 +55,11 @@ public class KhachHang {
 	}
 
 
-	public int getSoDienThoai() {
+	public String getSoDienThoai() {
 		return soDienThoai;
 	}
 
-	public void setSoDienThoai(int soDienThoai) {
+	public void setSoDienThoai(String soDienThoai) {
 		this.soDienThoai = soDienThoai;
 	}
 

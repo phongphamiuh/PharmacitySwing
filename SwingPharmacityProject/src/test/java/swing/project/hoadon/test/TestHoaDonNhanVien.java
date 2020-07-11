@@ -45,9 +45,9 @@ public class TestHoaDonNhanVien {
 		DuocPham dp2=new DuocPham(12l, "Uestasa", 5, 10000, 13000,"Hop", parsedDate,parsedDate, parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		DuocPham dp3=new DuocPham(15l, "Najyraky", 7, 10000, 15000,"Hop",parsedDate,parsedDate,parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		
-		KhachHang khachHang=new KhachHang( "Phong", 1);
+		KhachHang khachHang=new KhachHang( "Phong", "1");
 		NhanVien nhanVien=new NhanVien(18042041l, "Phong", "0358984752", "BRVT");
-		KhachHang khachHang1=new KhachHang("Huy", 1);
+		KhachHang khachHang1=new KhachHang("Huy", "1");
 		
 		
 		
