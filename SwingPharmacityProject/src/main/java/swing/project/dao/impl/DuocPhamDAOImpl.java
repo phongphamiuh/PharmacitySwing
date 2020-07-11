@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 
 import swing.project.dao.DuocPhamDAO;
 import swing.project.entity.DuocPham;
+import swing.project.entity.LoaiDuocPham;
+import swing.project.entity.NhaCungCap;
 import swing.project.hibernate.HibernateUtil;
 
 public class DuocPhamDAOImpl implements DuocPhamDAO{
@@ -25,7 +27,7 @@ public class DuocPhamDAOImpl implements DuocPhamDAO{
             // bắt đầu một transaction
 			session = HibernateUtil.getSessionFactory().openSession();
             transaction = session.beginTransaction();         
-            session.save(duocPham);       
+            session.persist(duocPham);       
             transaction.commit();  
             return true;
         } catch (Exception e) {      
@@ -174,4 +176,43 @@ public class DuocPhamDAOImpl implements DuocPhamDAO{
         }	
 		return false;
 	}
+	@Override
+	public boolean themLoaiDuocPham(LoaiDuocPham loaiDuocPham) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();         
+            session.persist(loaiDuocPham);       
+            transaction.commit();  
+            return true;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }
+		return false;
+	}
+	@Override
+	public boolean themNhaCungCap(NhaCungCap nhaCungCap) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();         
+            session.persist(nhaCungCap);       
+            transaction.commit();  
+            return true;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }
+		return false;
+	}
+	
 }

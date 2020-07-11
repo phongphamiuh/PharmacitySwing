@@ -47,14 +47,22 @@ public class HoaDonTestDAO {
 		DuocPham dp2=new DuocPham(12l, "Uestasa", 5, 10000, 13000,"Hop", parsedDate,parsedDate, parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		DuocPham dp3=new DuocPham(15l, "Najyraky", 7, 10000, 15000,"Hop",parsedDate,parsedDate,parsedDate, "Thuoc khang sinh",loaiDuocPham,nhaCungCap);	
 		
-		KhachHang khachHang=new KhachHang( "Phong", 1);
-		NhanVien nhanVien=new NhanVien(18042041l, "Phong", "0358984752", "BRVT");
 		
-		KhachHang khachHang1=new KhachHang( "Huy", 1);
+		KhachHang khachHang=new KhachHang("Phong", 1);
+		NhanVien nhanVien=new NhanVien(18042041l, "Phong", "0358984752", "BRVT");	
+		KhachHang khachHang1=new KhachHang("Huy", 1);
 		NhanVien nhanVien1=new NhanVien(18042047l, "Hien", "0358984752", "BRVT");
 		
+		// tạo 2 nhân viên 2 khách hàng
+		hoaDonDAO.themNhanVien(nhanVien);
+		hoaDonDAO.themKhachHang(khachHang);
+		hoaDonDAO.themNhanVien(nhanVien1);
+		hoaDonDAO.themKhachHang(khachHang1);
+		
+		// 2 hóa đơn do 1 nhân viên quản lý và mỗi khách hàng sỡ hữa 1 hóa đơn
+		
 		HoaDon hoaDon=new HoaDon();
-	
+		hoaDon.setMaHoaDon(126l);
 		hoaDon.setNgayLapHoaDon(parsedDate);
 		hoaDon.setGhiChu("Đọc kỹ hướng dẫn trước khi sử dụng");
 		hoaDon.setSoLuongDuocPham(2);
@@ -63,15 +71,20 @@ public class HoaDonTestDAO {
 		hoaDon.setNhanVien(nhanVien);
 		
 		
-		HoaDon hoaDon1=new HoaDon();
+		// tìm nhân viên có mã số 18042041 thêm vào hóa đơn.
+		NhanVien nhanVienTim=hoaDonDAO.timNhanVienTheoMaNhanVien(18042041l);
 		
+		HoaDon hoaDon1=new HoaDon();
+		hoaDon1.setMaHoaDon(127l);
 		hoaDon1.setNgayLapHoaDon(parsedDate);
 		hoaDon1.setGhiChu("Đọc kỹ hướng dẫn trước khi sử dụng");
 		hoaDon1.setSoLuongDuocPham(3);
 		hoaDon1.setTongTien(5000l);
 		hoaDon1.setKhachHang(khachHang1);
-		hoaDon1.setNhanVien(nhanVien1);
+		hoaDon1.setNhanVien(nhanVienTim);
 		
+		nhanVien.getDanhSachHoaDon().add(hoaDon);
+		nhanVienTim.getDanhSachHoaDon().add(hoaDon1);
 		
 //		hoaDon.getDanhSachDuocPham().add(dp1);
 //		hoaDon.getDanhSachDuocPham().add(dp2);
@@ -101,7 +114,7 @@ public class HoaDonTestDAO {
 		 System.out.println("-----------------------------------------------------------------------------------------");
          System.out.println("Tìm kiếm danh sách hóa đơn theo tên khách hàng");
          
-         List<HoaDon> danhSachHoaDonTHeoTenKhachHang= hoaDonDAO.getDanhSachHoaDonTheoTenKhachHang("huy");
+         List<HoaDon> danhSachHoaDonTHeoTenKhachHang= hoaDonDAO.getDanhSachHoaDonTheoTenKhachHang("phong");
          for (HoaDon danhSachHoaDon : danhSachHoaDonTHeoTenKhachHang) {
 			System.out.println(danhSachHoaDon);
 		}

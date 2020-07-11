@@ -11,6 +11,8 @@ import swing.project.dao.HoaDonDAO;
 import swing.project.entity.ChiTietHoaDon;
 import swing.project.entity.DuocPham;
 import swing.project.entity.HoaDon;
+import swing.project.entity.KhachHang;
+import swing.project.entity.NhanVien;
 import swing.project.hibernate.HibernateUtil;
 
 public class HoaDonDAOImpl implements HoaDonDAO{
@@ -148,7 +150,72 @@ public class HoaDonDAOImpl implements HoaDonDAO{
         	session.close();
         }	
 		return false;
-	}	
+	}
+
+	
+
+	@Override
+	public NhanVien timNhanVienTheoMaNhanVien(Long maNhanVien) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();         
+            Query query=session.createQuery("FROM NhanVien d WHERE d.maNhanVien=:maNhanVien")
+            			.setParameter("maNhanVien", maNhanVien);   
+            NhanVien nhanVien=(NhanVien) query.getSingleResult();
+            transaction.commit();   
+            return nhanVien;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }	
+		return null;
+	}
+
+	@Override
+	public boolean themNhanVien(NhanVien nhanVien) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();         
+            session.persist(nhanVien);      
+            transaction.commit();  
+            return true;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }
+		return false;
+	}
+
+	@Override
+	public boolean themKhachHang(KhachHang khachHang) {
+		Transaction transaction = null;
+		Session session=null;
+		try {
+            // bắt đầu một transaction
+			session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();         
+            session.persist(khachHang);      
+            transaction.commit();  
+            return true;
+        } catch (Exception e) {      
+        	transaction.rollback();
+            e.printStackTrace();            
+        } finally {
+        	session.close();
+        }
+		return false;
+	}
+
 	
 	
 }

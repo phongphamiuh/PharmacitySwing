@@ -67,6 +67,7 @@ public class HoaDonTest {
 		
 		
 		HoaDon hoaDon1=new HoaDon();
+		
 		hoaDon1.setMaHoaDon(467l);
 		hoaDon1.setNgayLapHoaDon(parsedDate);
 		hoaDon1.setGhiChu("Đọc kỹ hướng dẫn trước khi sử dụng");

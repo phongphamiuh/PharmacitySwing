@@ -23,7 +23,7 @@ public class LoaiDuocPham {
 	@Column
 	private String tenLoai;
 	
-	@OneToMany(mappedBy="loaiDuocPham",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="loaiDuocPham", orphanRemoval = true,cascade=CascadeType.ALL)
 	List<DuocPham> danhSachDuocPhamLoai=new ArrayList<DuocPham>();
 	
 	public Long getMaLoai() {

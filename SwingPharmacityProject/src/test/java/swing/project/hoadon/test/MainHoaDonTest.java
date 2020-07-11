@@ -16,7 +16,9 @@ import swing.project.entity.XuatXu;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 	HoaDonTest.class,
-	HoaDonTestDAO.class
+	HoaDonTestDAO.class,
+	TestHoaDonNhanVien.class,
+	TestSigleNhanVienHoaDon.class
 })
 public class MainHoaDonTest {
 	

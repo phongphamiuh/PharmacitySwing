@@ -3,8 +3,12 @@ package swing.project.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -13,7 +17,7 @@ import javax.persistence.Table;
 @Table
 public class NhanVien {
 	
-	@Id
+	@Id	
 	@Column
 	private Long maNhanVien;
 	
@@ -26,17 +30,18 @@ public class NhanVien {
 	@Column 
 	private String diaChi;
 	
-	@OneToMany(mappedBy="nhanVien")
+	
+	@OneToMany(mappedBy="nhanVien", orphanRemoval = true,cascade=CascadeType.ALL)
 	Set<HoaDon> danhSachHoaDon=new HashSet<HoaDon>();
 	
 	public NhanVien() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public NhanVien(Long maNhanVien, String tenNhanVien, String soDienThoai, String diaChi
+	public NhanVien( Long maNhanVien,String tenNhanVien, String soDienThoai, String diaChi
 			) {
 		super();
-		this.maNhanVien = maNhanVien;
+		this.maNhanVien=maNhanVien;
 		this.tenNhanVien = tenNhanVien;
 		this.soDienThoai = soDienThoai;
 		this.diaChi = diaChi;
@@ -92,5 +97,12 @@ public class NhanVien {
 		this.danhSachHoaDon = danhSachHoaDon;
 	}
 
+	@Override
+	public String toString() {
+		return "NhanVien [maNhanVien=" + maNhanVien + ", tenNhanVien=" + tenNhanVien + ", soDienThoai=" + soDienThoai
+				+ ", diaChi=" + diaChi + ", danhSachHoaDon="  + "]";
+	}
+
+	
 	
 }

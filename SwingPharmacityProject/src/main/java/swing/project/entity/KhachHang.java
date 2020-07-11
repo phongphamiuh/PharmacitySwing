@@ -3,8 +3,10 @@ package swing.project.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +28,8 @@ public class KhachHang {
 	@Column
 	private int soDienThoai;
 	
-	@OneToMany(mappedBy="khachHang")
+	
+	@OneToMany(mappedBy="khachHang", orphanRemoval = true,cascade=CascadeType.ALL)
 	private Set<HoaDon> danhSachHoaDon=new HashSet<HoaDon>();
 	
 	public KhachHang() {

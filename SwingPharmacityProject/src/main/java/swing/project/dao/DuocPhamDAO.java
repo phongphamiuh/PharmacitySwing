@@ -3,6 +3,8 @@ package swing.project.dao;
 import java.util.List;
 
 import swing.project.entity.DuocPham;
+import swing.project.entity.LoaiDuocPham;
+import swing.project.entity.NhaCungCap;
 
 public interface DuocPhamDAO {
 	
@@ -19,4 +21,8 @@ public interface DuocPhamDAO {
 	public List<DuocPham> timDuocPhamTen(String maDuocPham);
 	
 	public List<DuocPham> getDanhSachDuocPham();
+	
+	public boolean themLoaiDuocPham(LoaiDuocPham loaiDuocPham);
+	
+	public boolean themNhaCungCap(NhaCungCap nhaCungCap);
 }
